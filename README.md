@@ -72,6 +72,8 @@ Access the GCP console, under VM instances edit the rancher-server VM and mark t
 
 Wait until the rancher is up to work and access the rancher-server IP(34.151.241.74) in your browser.
 
+If the rancher version is v2.6.2+:
+
 Follow the instructions and login on rancher.
 
 ```sh
