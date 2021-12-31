@@ -66,7 +66,7 @@ $ ssh devops@34.151.241.74 'sudo mkdir /opt/rancher'
 ```
 Install the rancher container
 ```sh
-$ ssh devops@34.151.241.74 'sudo docker run -d -v /opt/rancher:/var/lib/rancher --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest'
+$ ssh devops@34.151.241.74 'sudo docker run -d -v /opt/rancher:/var/lib/rancher --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:v2.4.3'
 ```
 Access the GCP console, under VM instances edit the rancher-server VM and mark the option "Accept HTTP"
 
@@ -88,6 +88,17 @@ Run the script [install_kubectl](scripts/install_kubectl.sh) on the rancher-serv
 $ cd scripts
 $ ssh devops@34.151.241.74 'bash -s' < install_kubectl.sh
 ```
+Under rancher go to Cluster -> Click on "Kubeconfig File" -> Copy the content to clipboard
+
+Paste the content on the file "~/.kube/config" under the rancher-server machine
+```sh
+$ sudo nano ~/.kube/config
+```
+Test if is working
+
+```sh
+$ kubectl get nodes
+```
 <br>
 
 # 6. Create cluster
@@ -98,7 +109,7 @@ Copy the generated code and paste in a file called node_command.sh and execute f
 
 ```sh
 $ cd scripts
-$ ssh devops@35.198.57.145 'bash -s' < node_command.sh   #-k8s0
+$ ssh devops@34.95.134.36 'bash -s' < node_command.sh   #-k8s0
 $ ssh devops@35.198.57.145 'bash -s' < node_command.sh   #-k8s1
 s ssh devops@35.247.212.89 'bash -s' < node_command.sh   #-k8s2
 ```
@@ -106,3 +117,8 @@ s ssh devops@35.247.212.89 'bash -s' < node_command.sh   #-k8s2
 Wait until the cluster is up to work. You can see the cluster status on rancher web page -> Cluster Management
 
 <br>
+
+# 7. Install applications
+
+[traefik - ingress controller](traefik.md)
+[persistent volumes and longhorn](longhorn.md) 
