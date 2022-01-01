@@ -122,5 +122,9 @@ Wait until the cluster is up to work. You can see the cluster status on rancher 
 
 # 7. Install applications
 
-[traefik - ingress controller](traefik.md)
-[persistent volumes and longhorn](longhorn.md) 
+- [traefik : ingress controller](traefik.md)
+- [longhorn & persistent volumes](longhorn.md) 
+- [graylog : monitoring](graylog.md)
+- [cronjob : run job periodically](cronjob.md)
+- [configmap : store non-confidential data in key-value pairs](configmap.md)
+- [secrets : store sensitive data such as password, token or key](secrets.md)
