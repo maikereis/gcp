@@ -128,3 +128,4 @@ Wait until the cluster is up to work. You can see the cluster status on rancher 
 - [cronjob : run job periodically](cronjob.md)
 - [configmap : store non-confidential data in key-value pairs](configmap.md)
 - [secrets : store sensitive data such as password, token or key](secrets.md)
+- [liveness : periodically check application status](liveness.md)
